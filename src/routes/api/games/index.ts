@@ -3,8 +3,8 @@ const prisma = new PrismaClient();
 
 export const get = async ({ params  }) => {
 
-    let body = {};
-    body = await prisma.game.findMany({
+
+    const body = await prisma.game.findMany({
         include: {
             events:true
         }
@@ -20,8 +20,7 @@ export const get = async ({ params  }) => {
 export const post = async ({ request  }) => {
 
     const postData = await request.json()
-    let body = {};
-    body = await prisma.game.create({
+    const body = await prisma.game.create({
         data: {
             homeTeam:postData.homeTeam,
             awayTeam: postData.awayTeam,

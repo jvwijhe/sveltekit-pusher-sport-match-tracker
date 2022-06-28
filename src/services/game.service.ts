@@ -1,7 +1,22 @@
+const gamesIndex = async () => {
+        try {
+            const response = await fetch(`/api/games`, {
+                method: "GET",
+                headers: new Headers({
+                    Accept: "application/json",
+                }),
+            })
+            return await response.json()
+        } catch (err) {
+            console.log(err);
+            return false
+        }
+};
 
- const gameFetchUpdates = async (id) => {
+ 
+ const gameFetchUpdates = async (id:String) => {
     try {
-        const response=  await fetch(`/api/games/${id}`, {
+        const response =  await fetch(`/api/games/${id}`, {
             method: "GET",
             headers: new Headers({
                 Accept: "application/json",
@@ -13,9 +28,7 @@
     }
 };
 
-
-
-const gameFetchLatestEvent = async (id) => {
+const gameFetchLatestEvent = async (id:String) => {
     try {
         const response =  await fetch(`/api/games/${id}/events/latest`, {
             method: "GET",
@@ -29,7 +42,7 @@ const gameFetchLatestEvent = async (id) => {
     }
 };
 
-const gameFetchAllEvents = async (id) => {
+const gameFetchAllEvents = async (id:String) => {
     try {
         const response =  await fetch(`/api/games/${id}/events`, {
             method: "GET",
@@ -43,7 +56,4 @@ const gameFetchAllEvents = async (id) => {
     }
 };
 
-
-
-
-export {gameFetchUpdates, gameFetchLatestEvent, gameFetchAllEvents}
+export {gamesIndex, gameFetchUpdates, gameFetchLatestEvent, gameFetchAllEvents}
