@@ -18,6 +18,8 @@
 
 <script lang="ts">
     import { onMount } from "svelte";
+    import pusher from "$lib/pusher";
+    import { gameFetchUpdates,gameFetchLatestEvent } from "../../services/game.service"
 
     import GameCard from "../../components/game/Card.svelte";
     import EventListItem from "../../components/event/list/Item.svelte";
@@ -32,8 +34,16 @@
 
     onMount(async () => {
         events = await gameFetchAllEvents(game.id);
-        console.log(events);
+
+        
     });
+
+    var channel = pusher.subscribe(`games.${game.id}`);
+    channel.bind("event_created", async function (data) {
+        // refetch game data once we receive an update from Pusher
+       events = await gameFetchAllEvents(game.id);
+    });
+
 </script>
 
 <svelte:head>

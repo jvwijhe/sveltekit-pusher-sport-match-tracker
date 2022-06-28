@@ -34,7 +34,6 @@
         // refetch game data once we receive an update from Pusher
        gameData = await gameFetchUpdates(game.id);
        latestEvent = await gameFetchLatestEvent(game.id);
-       console.log(latestEvent)
     });
 
     onMount(async () => {
