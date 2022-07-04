@@ -19,13 +19,12 @@
 <script lang="ts">
     import { onMount } from "svelte";
     import pusher from "$lib/pusher";
-    import { gameFetchUpdates,gameFetchLatestEvent } from "../../services/game.service"
 
     import GameCard from "../../components/game/Card.svelte";
     import EventListItem from "../../components/event/list/Item.svelte";
     import IndicatorRealtime from "../../components/indicator/Realtime.svelte";
 
-    import { gameFetchAllEvents } from "../../services/game.service";
+    import { gameFetchAllEvents } from "$lib/services/api/game.service";
     import type Game from "$lib/types/game.type";
     import type Event from "$lib/types/event.type";
 

@@ -1,5 +1,5 @@
 export default interface Event {
-    id: String
+    id?: String
     text: String
     minute: Number
     type: String

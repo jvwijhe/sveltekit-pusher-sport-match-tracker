@@ -1,9 +1,6 @@
 <script>
-    import Card from "../Card.svelte";
-
-
-    import teams from "../../../mockup-data/teams";
-    import { gameFetchUpdates } from "../../../services/game.service"
+    import teams from "$lib/mockup-data/teams";
+    import { gameFetchUpdates } from "$lib/services/api/game.service"
 
     import pusher from "$lib/pusher";
     export let game;
@@ -23,7 +20,6 @@
     $: awayScore = gameData.awayScore;
 
   
-
     // Subscribe to the game with the correct id
     var channel = pusher.subscribe(`games.${game.id}`);
     channel.bind("event_created", async function (data) {

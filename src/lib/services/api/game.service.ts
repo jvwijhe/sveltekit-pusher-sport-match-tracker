@@ -1,4 +1,4 @@
-const gamesIndex = async () => {
+const gameIndex = async () => {
         try {
             const response = await fetch(`/api/games`, {
                 method: "GET",
@@ -11,6 +11,21 @@ const gamesIndex = async () => {
             console.log(err);
             return false
         }
+};
+
+const gameFetchRandom = async () => {
+    try {
+        const response = await fetch(`/api/games/random`, {
+            method: "GET",
+            headers: new Headers({
+                Accept: "application/json",
+            }),
+        })
+        return await response.json()
+    } catch (err) {
+        console.log(err);
+        return false
+    }
 };
 
  
@@ -56,4 +71,4 @@ const gameFetchAllEvents = async (id:String) => {
     }
 };
 
-export {gamesIndex, gameFetchUpdates, gameFetchLatestEvent, gameFetchAllEvents}
+export {gameIndex, gameFetchUpdates, gameFetchLatestEvent, gameFetchAllEvents}

@@ -2,8 +2,8 @@
     import pusher from "$lib/pusher";
     import { onMount } from "svelte";
 
-    import teams from "../../mockup-data/teams";
-    import { gameFetchUpdates,gameFetchLatestEvent } from "../../services/game.service"
+    import teams from "$lib/mockup-data/teams";
+    import { gameFetchUpdates,gameFetchLatestEvent } from "$lib/services/api/game.service"
     import IndicatorRealtime from "../indicator/Realtime.svelte";
     import EventListItem from "../event/list/Item.svelte"
 

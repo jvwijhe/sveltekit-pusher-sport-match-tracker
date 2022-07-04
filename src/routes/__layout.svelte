@@ -8,8 +8,9 @@
     </header>
     <div class="w-full py-3 px-6 border-b border-gray-100">
         <div class="container mx-auto">
-            <ul>
-                <li><a href="/" class="text-gray-600 hover:underline">Upcoming matches</a></li>
+            <ul class="flex gap-3 items-center">
+                <li><a href="/" class="text-gray-600 hover:underline">Upcoming games</a></li>
+                <li><a href="/games/create" class="text-gray-600 hover:underline">Create a game</a></li>
             </ul>
         </div>
     </div>
